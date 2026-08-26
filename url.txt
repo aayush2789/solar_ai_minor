@@ -1,0 +1,6 @@
+https://universe.roboflow.com/6rainstorm-yqytq/6rainstorm-final-project/dataset/1
+https://universe.roboflow.com/pvsoiling/soiling_dropping-2/dataset/14
+https://universe.roboflow.com/solar-panel-detection-bgiuk/solar-panel-detection-a5bec/dataset/3
+https://universe.roboflow.com/solarpaneldustdetection-vugnl/solar-panel-dust-detection-iab7a/dataset/2
+
+
