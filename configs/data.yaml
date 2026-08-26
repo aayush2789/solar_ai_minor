@@ -1,0 +1,14 @@
+path: /home/cse/solar_ai/dataset
+train: train/images
+val: valid/images
+test: test/images
+
+nc: 7
+names:
+  0: dust
+  1: defect
+  2: bird drop
+  3: snow
+  4: clean
+  5: leaf
+  6: bird feather

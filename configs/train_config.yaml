@@ -1,0 +1,36 @@
+# Training Hyperparameters configuration for Solar Panel Defect Detection
+# Optimized for Ultralytics YOLOv11 to handle class imbalance and fine-grained defects
+
+# Optimizer & Learning Rate
+optimizer: Auto
+lr0: 0.01
+lrf: 0.01
+momentum: 0.937
+weight_decay: 0.0005
+warmup_epochs: 3.0
+warmup_momentum: 0.8
+warmup_bias_lr: 0.1
+
+# Loss Gains
+box: 7.5
+cls: 1.5           # Boosted classification loss weight for imbalanced classes
+dfl: 1.5
+label_smoothing: 0.05
+
+# Augmentation Parameters
+hsv_h: 0.015
+hsv_s: 0.7
+hsv_v: 0.4
+degrees: 15.0      # Rotation augmentation
+translate: 0.1
+scale: 0.5
+shear: 0.0
+perspective: 0.0
+fliplr: 0.5
+flipud: 0.2
+bgr: 0.0
+mosaic: 1.0        # Mosaic augmentation
+mixup: 0.15        # Mixup augmentation
+copy_paste: 0.3    # Bounding box copy-paste augmentation
+auto_augment: randaugment
+erasing: 0.4

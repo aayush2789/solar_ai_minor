@@ -1,0 +1,37 @@
+# Python & Byte-code
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Environments & Secrets
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Datasets
+dataset/
+solar_datasets/
+*.zip
+*.tar
+*.tar.gz
+
+# Training Outputs & Model Weights
+runs/
+wandb/
+*.pt
+*.onnx
+*.engine
+*.tflite
+*.pb
+
+# IDEs & System Files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
