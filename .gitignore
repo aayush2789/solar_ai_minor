@@ -16,6 +16,10 @@ ENV/
 # Datasets
 dataset/
 solar_datasets/
+merged_dataset*
+merged_dataset_v3
+merged_dataset_v3/
+merged_dataset_v3_balanced/
 *.zip
 *.tar
 *.tar.gz
