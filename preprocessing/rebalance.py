@@ -22,7 +22,7 @@ import numpy as np
 import yaml
 from tqdm import tqdm
 
-CLASSES = ['dust', 'defect', 'bird drop', 'snow', 'clean', 'leaf', 'bird feather']
+CLASSES = ['dust', 'defect', 'bird drop', 'clean', 'leaf', 'bird feather']
 
 def parse_yolo_label(lbl_path: str) -> List[Dict]:
     """Parses YOLO label text file into [{'class': int, 'bbox': [x, y, w, h]}]."""
@@ -130,15 +130,15 @@ def rebalance_dataset(
 
     if target_multipliers is None:
         # Default multipliers for minority classes
-        # class 6 (bird feather): ~8-10x
+        # class 5 (bird feather): ~8-10x
         # class 2 (bird drop): ~3x
         # class 1 (defect): ~2x
-        # class 4 (clean): ~2x
+        # class 3 (clean): ~2x
         target_multipliers = {
-            6: 8,  # bird feather (102 -> ~900)
+            5: 8,  # bird feather (102 -> ~900)
             2: 3,  # bird drop (2214 -> ~6600)
             1: 2,  # defect (2200 -> ~4400)
-            4: 2   # clean (2277 -> ~4500)
+            3: 2   # clean (2277 -> ~4500)
         }
 
     print("\n" + "=" * 80)
@@ -267,17 +267,17 @@ def main():
     parser = argparse.ArgumentParser(description="Targeted offline minority class rebalancing for solar datasets")
     parser.add_argument("--source", type=str, default="/home/cse/solar_ai/merged_dataset_v3", help="Source YOLO dataset directory")
     parser.add_argument("--output", type=str, default="/home/cse/solar_ai/merged_dataset_v3_balanced", help="Output balanced dataset directory")
-    parser.add_argument("--feather-factor", type=int, default=8, help="Augmentation factor for bird feather (class 6)")
+    parser.add_argument("--feather-factor", type=int, default=8, help="Augmentation factor for bird feather (class 5)")
     parser.add_argument("--bird-drop-factor", type=int, default=3, help="Augmentation factor for bird drop (class 2)")
     parser.add_argument("--defect-factor", type=int, default=2, help="Augmentation factor for defect (class 1)")
-    parser.add_argument("--clean-factor", type=int, default=2, help="Augmentation factor for clean (class 4)")
+    parser.add_argument("--clean-factor", type=int, default=2, help="Augmentation factor for clean (class 3)")
 
     args = parser.parse_args()
     multipliers = {
-        6: args.feather_factor,
+        5: args.feather_factor,
         2: args.bird_drop_factor,
         1: args.defect_factor,
-        4: args.clean_factor
+        3: args.clean_factor
     }
     rebalance_dataset(args.source, args.output, target_multipliers=multipliers)
 

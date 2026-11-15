@@ -11,10 +11,9 @@ DEFAULT_CLASS_NAMES = [
     'dust',          # 0
     'defect',        # 1
     'bird drop',     # 2
-    'snow',          # 3
-    'clean',         # 4
-    'leaf',          # 5
-    'bird feather'   # 6
+    'clean',         # 3
+    'leaf',          # 4
+    'bird feather'   # 5
 ]
 
 def check_environment():

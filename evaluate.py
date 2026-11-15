@@ -2,7 +2,7 @@ import os
 import argparse
 from ultralytics import YOLO
 
-CLASSES = ['dust', 'defect', 'bird drop', 'snow', 'clean', 'leaf', 'bird feather']
+CLASSES = ['dust', 'defect', 'bird drop', 'clean', 'leaf', 'bird feather']
 
 def evaluate(args):
     """Evaluates trained YOLO model on validation or test split."""
@@ -40,8 +40,10 @@ def evaluate(args):
     print(f"{'Class ID':<10} {'Class Name':<15} {'Precision':<12} {'Recall':<12} {'mAP50':<12} {'mAP50-95':<12}")
     print("-" * 75)
 
+    names = model.names if hasattr(model, 'names') and model.names else {i: c for i, c in enumerate(CLASSES)}
+    class_names = [names[i] for i in range(len(names))]
     maps_per_class = metrics.box.maps
-    for cid, cname in enumerate(CLASSES):
+    for cid, cname in enumerate(class_names):
         p = metrics.box.p[cid] if cid < len(metrics.box.p) else 0.0
         r = metrics.box.r[cid] if cid < len(metrics.box.r) else 0.0
         map50 = maps_per_class[cid] if cid < len(maps_per_class) else 0.0

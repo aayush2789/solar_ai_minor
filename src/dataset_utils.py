@@ -3,7 +3,7 @@ import glob
 import argparse
 from collections import defaultdict
 
-CLASSES = ['dust', 'defect', 'bird drop', 'snow', 'clean', 'leaf', 'bird feather']
+CLASSES = ['dust', 'defect', 'bird drop', 'clean', 'leaf', 'bird feather']
 
 def count_classes(dataset_dir):
     """
@@ -99,7 +99,7 @@ if __name__ == '__main__':
     parser.add_argument("--data-dir", type=str, default="/home/cse/solar_ai/dataset", help="Dataset root directory")
     args = parser.parse_args()
 
-    if os.path.exists(args.data-dir):
+    if os.path.exists(args.data_dir):
         print_dataset_report(args.data_dir)
     else:
         print(f"Directory not found: {args.data_dir}")

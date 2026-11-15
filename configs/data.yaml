@@ -2,13 +2,11 @@ path: /home/cse/solar_ai/merged_dataset_v3
 train: train/images
 val: valid/images
 test: test/images
-
-nc: 7
+nc: 6
 names:
   0: dust
   1: defect
   2: bird drop
-  3: snow
-  4: clean
-  5: leaf
-  6: bird feather
+  3: clean
+  4: leaf
+  5: bird feather
